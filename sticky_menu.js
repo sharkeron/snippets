@@ -1,13 +1,14 @@
 $(window).scroll(function() {
-    var fixedMenu = $(FIXED_MENU).outerHeight(true); // height of selector which fixed after scroll
+    var fixedMenu = $(FIXED_MENU);
+    var fixedMenuHeight = fixedMenu.outerHeight(true); // height of selector which fixed after scroll
 
     if ($(window).width() > 768) { // When fixed active
-        if ($(this).scrollTop() >= headerTopHeight) {
-            $('.header-bottom').addClass('sticky');
-            $('body').addClass('sticky');
+        if ($(this).scrollTop() >= fixedMenuHeight) {
+            fixedMenu.addClass('sticky');
+            $('header').addClass('sticky');
         } else {
-            $('.header-bottom').removeClass('sticky');
-            $('body').removeClass('sticky');
+            fixedMenu.removeClass('sticky');
+            $('header').removeClass('sticky');
         }
     }
 });
